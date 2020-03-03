@@ -40,7 +40,7 @@ You may find these resources useful:
 * Use the [sprint challenge instructions for Intro to Django](https://github.com/LambdaSchool/Sprint-Challenge--Django-I).
 * Add environment variables to heroku using `heroku config:set KEY=VALUE`
   * It is recommended that if you are having trouble (e.g. 500 server errors) to set
-    ```
+    ````
     DEBUG=TRUE
     ```
     to get more information.
