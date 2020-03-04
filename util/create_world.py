@@ -28,17 +28,18 @@ r_kitchenstorage = Room(title = "Kitchen Storage", description = """Maybe inbetw
 r_backgarden = Room(title = "Back Garden", description = """No treasure here today but dont give up! There are other parts of the castle to explore. Head south to return into the storage""" )
 r_dinninghall = Room(title = "Dinning hall", description = """Don't get distracted by the delicious feast,there is no treasure here. You can return to the previous room on the south""" )
 r_lilygarden = Room(title = "Lily Garden", description = """You're currently in a different part of the garden, forge forward to the rose garden on the north to see if the treasure is hidden somewhere, you may also exit to the main garden on the west or return to back garden on the south""" )
-r_waterfall = Room(title = "waterwfall", description = "This is a pretty waterfall but no treasure here, You may go back to the main garden on the south")
-r_tulipgarden = Room(title = "Tulip Garden", description = """Oops! More flowers. Unfortunatly only flowers here, you may go west to the waterfall or east to the rose garden""" )
-r_rosegarden = Room(title = "Rose Garden", description = """Pick a nice rose for your loved one on your way but you may need the room for enough treasure, head south or west to see where it leads you!""" )
+r_waterfall = Room(title = "waterwfall", description = "This is a pretty waterfall but no treasure here, You may go back to the garden on the south")
+r_tulipgarden = Room(title = "Tulip Garden", description = """Oops! More flowers. Unfortunatly only flowers here, you may go north to the waterfall or east to the rose garden""" )
+r_rosegarden = Room(title = "Rose Garden", description = """Pick a nice rose for your loved one on your way but you may need the room for enough treasure, head north to see where it leads you!""" )
+r_queenschamber = Room(title = "Queen's chamber", description = """If playing dress up is your thing, this might be the room for you. Unfortunately not the kind of treasure you want this time! Head east to exit the room""" )
+r_throneroom = Room(title = "Throne room", description = """You've reached the throne room, you could take a nap or return to previous room on the south to continue your treasure hunt!""")
+r_solar = Room = Room(title = "Solar", description = """This is where the royals have family time, unfortunately no treasures here. But you may choose to go north to enter the chambers to see what is there. """)
 
 
 ###
 r_dungeon = Room(title = "The Dungeon", description = """You're in the dungeon, shh! move quietly so as not to alert the angry prisoners. You can move *** to return to previous room or *** to move to the turret """ )
 r_turret = Room(title = "Turret", description = """Fancy a party? Sure, stay! but someone might grab the treasure before you. Go *** to head to the *** instead""" )
-r_queenschamber = Room(title = "Queen's chamber", description = """If playing dress up is your thing, this might be the room for you. Unfortunately not the kind of treasure you want this time!""" )
-r_throneroom = Room(title = "Throne room", description = """You've reached the throne room, you could take a nap or return to previous room to continue your treasure hunt!""")
-r_solar = Room = Room(title = "Solar", description = """This is where the royals have family time, unfortunately no treasures here. But you may choose to go north to enter ****, east to enter ****, west to enter *** or south to go back to ****""")
+
 ###
 
 
@@ -50,9 +51,8 @@ r_landing = Room(title = "Landing", description =  """You have now entered the n
 r_banquethall = Room(title = "Banquet hall", description = """You are now in the banquet hall, join the party if you want but the treasure might go to someone who works more. Go east to return to the landing or north to go to the hallway""")
 r_banquethallway = Room(title = "Banquest Hallway", description = """The hallway would be a silly place to hide some treasure wouldn't it? Go south to return to the banquet hall or east to go to the *** """)
 r_partyroom = Room(title = "Party room", description = """More party! I know you just want some treasure, dont give up! you can go west to return to the hallway or east to return to head into the banquet room for some comfort food""")
-r_maingarden = Room(title = 'Main Garden', description = """You are in a main garden now, this would make a perfect location for a reception, unfortunately no treasure here. You may return to the party room on the South or go west to explore another hallway. There is also a room on the north and one on the south""")
+r_maingarden = Room(title = 'Main Garden', description = """You are in the main garden now, this would make a perfect location for a reception, unfortunately no treasure here. You may return to the party room on the South or go west to explore another hallway.""")
 r_gardenhallwayone = Room(title = "Garden Hallway One", description = """We know now that hallways have no treasures. No, not even behind an imaginary save behind the painting. Head east to return to the garden or south to explore more hallways, it might lead somewhere """)
-
 r_gardenhallwaytwo = Room(title = "Garden Hallway Two", description = """It is a really long hallway, go south to keep going or north to return to previous hallway""")
 r_gardenhallwaythree = Room(title = "Garden Hallway Three", description = """We are almost at the end of this hallway now! You've come so far, don'g give up but if you wish, you may go back to the previous hallway by going north or to the next room by heading east""")
 r_courtyard = Room(title = """Welcome to the castle! Your quest begins you may head north, west or east to explore the castle or head south to exit the castle""")
@@ -176,17 +176,12 @@ r_backgarden.connectRooms(r_kitchenstorage, "s")
 r_backgarden.connectRooms(r_lilygarden, "n")
 r_lilygarden.connectRooms(r_backgarden, "s")
 
-r_lilygarden.connectRooms(r_maingarden, "w")
-r_maingarden.connectRooms(r_lilygarden, "e")
 
-r_waterfall.connectRooms(r_maingarden, "s")
-r_maingarden.connectRooms(r_waterfall, "n")
+r_tulipgarden.connectRooms(r_waterfall, "n")
+r_waterfall.connectRooms(r_tulipgarden, "s")
 
-r_tulipgarden.connectRooms(r_waterfall, "w")
-r_waterfall.connectRooms(r_tulipgarden, "e")
-
-r_tulipgarden.connectRooms(r_rosegarden, "e")
-r_rosegarden.connectRooms(r_tulipgarden, "w")
+r_tulipgarden.connectRooms(r_rosegarden, "s")
+r_rosegarden.connectRooms(r_tulipgarden, "n")
 
 r_rosegarden.connectRooms(r_lilygarden, "s")
 r_lilygarden.connectRooms(r_rosegarden, "n")
