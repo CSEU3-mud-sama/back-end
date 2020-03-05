@@ -5,9 +5,14 @@
 # procedural generation algorithm and use print_rooms()
 # to see the world.
 
+import random
+from adventure.models import Room
+
+
+
 
 class Room:
-    def __init__(self, id, name, description, x, y):
+    def __init__(self, id, name, description, n_to, s_to, e_to, w_to, x, y):
         self.id = id
         self.name = name
         self.description = description
@@ -17,6 +22,7 @@ class Room:
         self.w_to = None
         self.x = x
         self.y = y
+
     def __repr__(self):
         if self.e_to is not None:
             return f"({self.x}, {self.y}) -> ({self.e_to.x}, {self.e_to.y})"
