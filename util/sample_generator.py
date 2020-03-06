@@ -158,5 +158,5 @@ height = 10
 w.generate_rooms(width, height, num_rooms)
 # w.print_rooms()
 
-.
+
 # print(f"\n\nWorld\n  height: {height}\n  width: {width},\n  num_rooms: {num_rooms}\n")
