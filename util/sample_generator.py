@@ -94,7 +94,6 @@ class World:
                 y += 1
                 direction *= -1
 
-
             if room_count == 0:
                 #move east
                 self.n_to = None

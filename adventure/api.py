@@ -12,19 +12,7 @@ import json
 # Helps determine which field we intend to expose(view)
 
 
-class RoomSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Room
-        fields = ("title", "description", "id", "n_to",
-                  "s_to", "e_to", "w_to", "x", "y")
 
-#  the rows we intend to show 
-
-class RoomViewSet(viewsets.ModelViewSet):
-    # attach viewset to serializer
-    serializer_class = RoomSerializer
-    #  returned data 
-    queryset = Room.objects.all().order_by("id")
 
 # instantiate pusher
 # pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
@@ -84,3 +72,24 @@ def say(request):
     # IMPLEMENT
     return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
 
+
+class RoomSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Room
+        fields = ("title", "description", "id", "n_to",
+                  "s_to", "e_to", "w_to", "x", "y")
+
+#  the rows we intend to show 
+
+class RoomViewSet(viewsets.ModelViewSet):
+    # attach viewset to serializer
+    serializer_class = RoomSerializer
+    #  returned data 
+    queryset = Room.objects.all().order_by("id")
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_anonymous:
+            return Room.objects.none()
+        else:
+            return Room.objects.all()
